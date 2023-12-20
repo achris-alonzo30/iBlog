@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+@keyframes textGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  height: 10px; /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #718f94; /* Color of the thumb */
+  border-radius: 10px; /* Radius of the thumb corners */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #cbd5e0; /* Color of the track */
+}
+
+/* Firefox */
+/* You can use similar styles for Firefox scrollbar if needed */
+/* Just note that Firefox uses a different syntax */
+
+/* For Mac users with a mouse, you might want to customize the scrollbar buttons */
+/* For Windows users, this might not be necessary */
+::-webkit-scrollbar-button {
+  background-color: #a0aec0;
+}
+
+/* Handle different states of the scrollbar (e.g., hover, active) */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2d3748;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #1a202c;
+}
+
+
+.animate-text-gradient {
+  background: linear-gradient(90deg, #718f94, #425154, #948070);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  animation: textGradient 3s linear infinite;
+}
