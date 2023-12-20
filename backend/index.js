@@ -26,9 +26,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-const mongodbPass = process.env.MONGODB_PASSWORD
 mongoose.connect(
-  `mongodb+srv://achrisalonzo30:${mongodbPass}@cluster0.spaxjey.mongodb.net/Usersblog?retryWrites=true&w=majority`
+  "mongodb+srv://achrisalonzo30:KWnuBBbpZ9NsUuXU@cluster0.spaxjey.mongodb.net/Usersblog?retryWrites=true&w=majority"
 );
 
 app.post("/register", async (req, res) => {
