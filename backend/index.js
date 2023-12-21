@@ -32,6 +32,7 @@ app.use(
     methods: ["POST", "GET", "PUT"],
     credentials: true,
     origin: "http://i-blog-heited6zv-achris-alonzo30s-projects.vercel.app",
+    exposedHeaders: ["Access-Control-Allow-Credentials", "Access-Control-Allow-Origin"],
   })
 );
 app.use(express.json());
