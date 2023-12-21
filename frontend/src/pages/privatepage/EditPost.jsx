@@ -3,7 +3,7 @@ import { Navigate, useParams } from "react-router-dom";
 import ReactQuill from "react-quill";
 import { CircularProgress } from "@mui/material";
 import { useTheme } from "../../context/ThemeContext";
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 export default function EditPost() {
   const { id } = useParams();
   const [title, setTitle] = useState("");
@@ -15,7 +15,7 @@ export default function EditPost() {
   const { isDarkMode } = useTheme();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/post/${id}`).then((response) => {
+    fetch(`${backendUrl}/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setTitle(postInfo.title);
         setContent(postInfo.content);

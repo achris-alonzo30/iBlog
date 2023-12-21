@@ -4,7 +4,7 @@ import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import { formatDate } from "../../utils/utils";
 import { useTheme } from "../../context/ThemeContext";
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 export default function Post() {
   const [postInfo, setPostInfo] = useState(null);
   const { userInfo } = useContext(UserContext);
@@ -12,7 +12,7 @@ export default function Post() {
   const { isDarkMode } = useTheme();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/post/${id}`).then((response) => {
+    fetch(`${backendUrl}/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
       });

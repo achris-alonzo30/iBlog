@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import Posts from "../../components/Posts";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const UserHome = () => {
   const [posts, setPosts] = useState([]);
   const { userInfo } = useContext(UserContext);
@@ -10,7 +10,7 @@ const UserHome = () => {
 
   useEffect(() => {
     // Fetch posts that match the current user's _id
-    fetch(`http://localhost:4000/post?author=${userInfo.id}`, {
+    fetch(`${backendUrl}/post?author=${userInfo.id}`, {
       method: "GET",
       credentials: "include",
     })

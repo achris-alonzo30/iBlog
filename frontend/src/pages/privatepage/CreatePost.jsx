@@ -4,7 +4,7 @@ import "react-quill/dist/quill.snow.css";
 import { Navigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import { useTheme } from "../../context/ThemeContext";
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const CreatePost = () => {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
@@ -28,7 +28,7 @@ const CreatePost = () => {
       postData.append("file", file[0]);
     }
 
-    const response = await fetch("http://localhost:4000/post", {
+    const response = await fetch(`${backendUrl}/post`, {
       method: "POST",
       body: postData,
       credentials: "include",

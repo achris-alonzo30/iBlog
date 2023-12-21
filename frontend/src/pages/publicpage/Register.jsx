@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Alert, AlertTitle, CircularProgress } from "@mui/material";
 import { useTheme } from "../../context/ThemeContext";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +17,7 @@ const Register = () => {
     event.preventDefault();
     try {
       setIsSigning(true);
-      const response = await fetch("http://localhost:4000/register", {
+      const response = await fetch(`${backendUrl}/register`, {
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: {
