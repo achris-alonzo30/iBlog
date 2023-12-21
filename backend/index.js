@@ -18,6 +18,7 @@ const secret = "ajskdhajkshdajshdajk";
 
 app.use(
   cors({
+    methods: ["POST", "GET", "PUT"],
     credentials: true,
     origin: "http://localhost:3000",
   })
@@ -30,7 +31,7 @@ mongoose.connect(
   "mongodb+srv://achrisalonzo30:KWnuBBbpZ9NsUuXU@cluster0.spaxjey.mongodb.net/Usersblog?retryWrites=true&w=majority"
 );
 
-app.post("/register", async (req, res) => {
+app.post("/api/register", async (req, res) => {
   const { username, password } = req.body;
   try {
     const userDoc = await User.create({
@@ -45,7 +46,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -84,7 +85,7 @@ app.post("/login", async (req, res) => {
 });
 
 
-app.get("/profile", (req, res) => {
+app.get("/api/profile", (req, res) => {
   const { token } = req.cookies;
 
   if (!token) {
@@ -102,11 +103,11 @@ app.get("/profile", (req, res) => {
   });
 });
 
-app.post("/logout", (req, res) => {
+app.post("/api/logout", (req, res) => {
   res.clearCookie("token").json({ message: "Logout Successfully!" });
 });
 
-app.post("/post", upload.single("file"), async (req, res) => {
+app.post("/api/post", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ message: "File not provided" });
@@ -141,7 +142,7 @@ app.post("/post", upload.single("file"), async (req, res) => {
   }
 });
 
-app.put("/post", upload.single("file"), async (req, res) => {
+app.put("/api/post", upload.single("file"), async (req, res) => {
   let newPath = null;
   if (req.file) {
     const { originalname, path } = req.file;
@@ -171,7 +172,7 @@ app.put("/post", upload.single("file"), async (req, res) => {
   });
 });
 
-app.get("/post", async (req, res) => {
+app.get("/api/post", async (req, res) => {
   try {
     const { token } = req.cookies;
 
@@ -200,7 +201,7 @@ app.get("/post", async (req, res) => {
   }
 });
 
-app.get("/post/:id", async (req, res) => {
+app.get("/api/post/:id", async (req, res) => {
   const { id } = req.params;
   const postDoc = await Post.findById(id).populate("author", ["username"]);
   res.json(postDoc);
