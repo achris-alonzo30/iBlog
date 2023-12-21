@@ -10,7 +10,7 @@ const UserHome = () => {
 
   useEffect(() => {
     // Fetch posts that match the current user's _id
-    fetch(`http://localhost:4000/api/post?author=${userInfo.id}`, {
+    fetch(`http://localhost:4000/post?author=${userInfo.id}`, {
       method: "GET",
       credentials: "include",
     })

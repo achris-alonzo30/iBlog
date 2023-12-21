@@ -12,7 +12,7 @@ export default function Post() {
   const { isDarkMode } = useTheme();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/api/post/${id}`).then((response) => {
+    fetch(`http://localhost:4000/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
       });

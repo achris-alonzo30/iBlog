@@ -28,7 +28,7 @@ const CreatePost = () => {
       postData.append("file", file[0]);
     }
 
-    const response = await fetch("http://localhost:4000/api/post", {
+    const response = await fetch("http://localhost:4000/post", {
       method: "POST",
       body: postData,
       credentials: "include",
