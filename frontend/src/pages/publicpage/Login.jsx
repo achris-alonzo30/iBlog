@@ -8,8 +8,7 @@ import { AlertTitle } from "@mui/material";
 import { useTheme } from "../../context/ThemeContext";
 
 const backendUrl = process.env.BACKEND_URL || "http://localhost:4000";
-
-
+console.log(backendUrl)
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
