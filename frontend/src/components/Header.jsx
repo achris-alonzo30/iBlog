@@ -42,7 +42,7 @@ const Header = () => {
   }, [setUserInfo]);
 
   function logout() {
-    fetch("http://localhost:4000/logout", {
+    fetch("http://localhost:4000/api/logout", {
       credentials: "include",
       method: "POST",
     })
