@@ -7,6 +7,9 @@ import Alert from "@mui/material/Alert";
 import { AlertTitle } from "@mui/material";
 import { useTheme } from "../../context/ThemeContext";
 
+const backendUrl = process.env.BACKEND_URL || "http://localhost:4000";
+
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +23,7 @@ const Login = () => {
     event.preventDefault();
     try {
       setIsLogging(true);
-      const response = await fetch("http://localhost:4000/login", {
+      const response = await fetch(`${backendUrl}/login`, {
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: {
