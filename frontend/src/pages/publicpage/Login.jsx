@@ -20,7 +20,7 @@ const Login = () => {
     event.preventDefault();
     try {
       setIsLogging(true);
-      const response = await fetch("http://localhost:4000/api/login", {
+      const response = await fetch("http://i-blog-five.vercel.app/api/login", {
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: {
