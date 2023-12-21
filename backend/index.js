@@ -31,7 +31,7 @@ app.use(
   cors({
     methods: ["POST", "GET", "PUT"],
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: "http://i-blog-five.vercel.app",
   })
 );
 app.use(express.json());
