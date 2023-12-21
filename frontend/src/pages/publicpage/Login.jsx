@@ -7,8 +7,8 @@ import Alert from "@mui/material/Alert";
 import { AlertTitle } from "@mui/material";
 import { useTheme } from "../../context/ThemeContext";
 
-const backendUrl = process.env.BACKEND_URL || "http://localhost:4000";
-console.log(backendUrl)
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
