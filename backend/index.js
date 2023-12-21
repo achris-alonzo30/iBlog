@@ -8,7 +8,18 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
 const fs = require("fs");
-const upload = multer({ dest: "uploads/" });
+const uploadDirectory = process.env.UPLOAD_DIRECTORY || 'uploads/';
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, uploadDirectory);
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
 
 const app = express();
 
