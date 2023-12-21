@@ -27,13 +27,13 @@ const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
 const secret = "ajskdhajkshdajshdajk";
 
-app.use(
-  cors({
-    methods: ["POST", "GET", "PUT"],
-    credentials: true,
-    origin: "https://i-blog-heited6zv-achris-alonzo30s-projects.vercel.app",
-  })
-);
+const corsOptions = {
+  origin: "https://i-blog-client.vercel.app",
+  methods: ["POST", "GET", "PUT"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
