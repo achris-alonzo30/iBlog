@@ -31,7 +31,7 @@ app.use(
   cors({
     methods: ["POST", "GET", "PUT"],
     credentials: true,
-    origin: "http://i-blog-five.vercel.app",
+    origin: "http://i-blog-heited6zv-achris-alonzo30s-projects.vercel.app",
   })
 );
 app.use(express.json());
